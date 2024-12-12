@@ -23,6 +23,7 @@ const initializeDBAndServer = async () => {
   }
 }
 initializeDBAndServer()
+
 const checkRequestsQueries = async (request, response, next) => {
   const {search_q, category, priority, status, date} = request.query
   const {todoId} = request.params
@@ -152,7 +153,6 @@ const checkRequestsBody = (request, response, next) => {
   }
   request.todo = todo
   request.id = id
-
   request.todoId = todoId
 
   next()
@@ -239,7 +239,7 @@ app.post('/todos/', checkRequestsBody, async (request, response) => {
 
   const createUser = await db.run(addTodoQuery)
   console.log(createUser)
-  response.send('Todo Successfully Added')
+  response.send('Todo Successfully ')
 })
 
 //Update Todo API-5
