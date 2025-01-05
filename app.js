@@ -5,10 +5,12 @@ const sqlite3 = require('sqlite3')
 const path = require('path')
 const isValid = require('date-fns/isValid')
 const format = require('date-fns/format')
+const cors = require('cors')
 
 let db = null
 const app = express()
 app.use(express.json())
+app.use(cors())
 const dbPath = path.join(__dirname, 'todoApplication.db')
 const initializeDbAndServer = async () => {
   try {
